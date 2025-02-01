@@ -2,24 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
-{
-    private Rigidbody2D rb;
-    public float jump;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        
-    }
+public class Movement : MonoBehaviour 
+{ 
+    public float jumpSpeed = 9f;
+    private Rigidbody2D player;
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+    private bool isTouchingGround;
 
-    // Update is called once per frame
-    void Update()
+    // Use this for initialization
+    void Start () 
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            rb.AddForce(new Vector2(rb.velocity.x, jump));
+        player = GetComponent<Rigidbody2D>();
+    }
+    // Update is called once per frame
+    void Update() 
+    { 
+        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if (isTouchingGround && Input.GetButtonDown("Jump")) {
+            player.velocity = new Vector2(player.velocity.x, jumpSpeed); 
         }
-      
     }
 }
