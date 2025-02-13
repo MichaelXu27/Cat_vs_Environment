@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class badObstacle : MonoBehaviour
-{
 
+public class NewBehaviourScript : MonoBehaviour
+{
+    // Start is called before the first frame update
     Rigidbody2D rb;
 
     void Start()
@@ -26,7 +27,8 @@ public class badObstacle : MonoBehaviour
         //reload the scene if the cat comes in contact with the bad obstacle
         if (other.gameObject.GetComponent<Movement>()) //movement can be replaced
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //add some scoring system here
+            Destroy(gameObject);
         }
 
 
@@ -34,7 +36,7 @@ public class badObstacle : MonoBehaviour
         if (other.gameObject.name.Equals("Ground"))
         {
             //destroys the object after 3 seconds of touching the ground
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 3f);
         }
     }
 }
