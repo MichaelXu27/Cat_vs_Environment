@@ -8,9 +8,15 @@ public class badObstacle : MonoBehaviour
 
     Rigidbody2D rb;
 
+    Vector2 originalPosition;
+    Quaternion originalRotation;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -33,8 +39,20 @@ public class badObstacle : MonoBehaviour
         //this will destroy the object that has the script that touches the ground
         if (other.gameObject.name.Equals("Ground"))
         {
-            //destroys the object after 3 seconds of touching the ground
-            Destroy(gameObject, 1f);
+            //destroys the object after 1 seconds of touching the ground
+            //Destroy(gameObject, 1f);
+            ResetObject();
         }
+    }
+
+    void ResetObject()
+    {
+        rb.isKinematic = true;
+
+        transform.position = originalPosition;
+        transform.rotation = originalRotation;
+
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
     }
 }

@@ -9,9 +9,15 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     Rigidbody2D rb;
 
+    Vector2 originalPosition;
+    Quaternion originalRotation;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +34,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.gameObject.GetComponent<Movement>()) //movement can be replaced
         {
             //add some scoring system here
-            Destroy(gameObject);
+            ResetObject();
         }
 
 
@@ -36,7 +42,19 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.gameObject.name.Equals("Ground"))
         {
             //destroys the object after 3 seconds of touching the ground
-            Destroy(gameObject, 3f);
+            //Destroy(gameObject, 3f);
+            ResetObject();
         }
+    }
+
+    void ResetObject()
+    {
+        rb.isKinematic = true;
+
+        transform.position = originalPosition;
+        transform.rotation = originalRotation;
+
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
     }
 }
