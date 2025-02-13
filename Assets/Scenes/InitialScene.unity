@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 422677815}
   - component: {fileID: 422677814}
   - component: {fileID: 422677813}
-  - component: {fileID: 422677812}
+  - component: {fileID: 422677818}
   m_Layer: 0
   m_Name: cake1
   m_TagString: Untagged
@@ -143,18 +143,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &422677812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422677811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ed3b656daa04bd1beadc95bf77df35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &422677813
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -340,12 +328,24 @@ Transform:
   m_GameObject: {fileID: 422677811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.94, y: 3.09, z: 0}
+  m_LocalPosition: {x: -4.71, y: 3.09, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &422677818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422677811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12c149680d104ae8ad3d0b560f6c277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &448068211
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 448068215}
   - component: {fileID: 448068214}
   - component: {fileID: 448068213}
-  - component: {fileID: 448068212}
+  - component: {fileID: 448068218}
   m_Layer: 0
   m_Name: burger1
   m_TagString: Untagged
@@ -367,18 +367,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &448068212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448068211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ed3b656daa04bd1beadc95bf77df35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &448068213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -572,6 +560,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &448068218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448068211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12c149680d104ae8ad3d0b560f6c277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &468453678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 1486372196}
   - component: {fileID: 1486372195}
   - component: {fileID: 1486372194}
-  - component: {fileID: 1486372193}
+  - component: {fileID: 1486372199}
   m_Layer: 0
   m_Name: avocado1
   m_TagString: Untagged
@@ -1064,18 +1064,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1486372193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486372192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ed3b656daa04bd1beadc95bf77df35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1486372194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1268,6 +1256,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1486372199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486372192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12c149680d104ae8ad3d0b560f6c277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1598314485
 GameObject:
   m_ObjectHideFlags: 0
