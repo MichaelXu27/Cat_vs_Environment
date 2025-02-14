@@ -35,6 +35,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             //add some scoring system here
             ResetObject();
+            ScoreManager.instance.AddPoint();
         }
 
 
