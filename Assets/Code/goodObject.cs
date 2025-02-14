@@ -18,13 +18,15 @@ public class NewBehaviourScript : MonoBehaviour
 
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+
+        rb.isKinematic = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals("Cat"))
         {
-            rb.isKinematic = false;
+            rb.isKinematic = false; //can also delete
         }
     }
 
@@ -34,7 +36,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.gameObject.GetComponent<Movement>()) //movement can be replaced
         {
             //add some scoring system here
-            ResetObject();
+            Destroy(gameObject);
             ScoreManager.instance.AddPoint();
         }
 
@@ -44,13 +46,13 @@ public class NewBehaviourScript : MonoBehaviour
         {
             //destroys the object after 3 seconds of touching the ground
             //Destroy(gameObject, 3f);
-            ResetObject();
+            //ResetObject();
         }
     }
 
     void ResetObject()
     {
-        rb.isKinematic = true;
+        rb.isKinematic = false;
 
         transform.position = originalPosition;
         transform.rotation = originalRotation;

@@ -17,13 +17,15 @@ public class badObstacle : MonoBehaviour
 
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+
+        rb.isKinematic = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals("Cat"))
         {
-            rb.isKinematic = false;
+            rb.isKinematic = false; //can delete later
         }
     }
 
@@ -40,14 +42,14 @@ public class badObstacle : MonoBehaviour
         if (other.gameObject.name.Equals("Ground"))
         {
             //destroys the object after 1 seconds of touching the ground
-            //Destroy(gameObject, 1f);
-            ResetObject();
+            Destroy(gameObject, 0f);
+            //ResetObject();
         }
     }
 
     void ResetObject()
     {
-        rb.isKinematic = true;
+        rb.isKinematic = false;
 
         transform.position = originalPosition;
         transform.rotation = originalRotation;
