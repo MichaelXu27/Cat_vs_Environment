@@ -41,8 +41,8 @@ public class badObstacle : MonoBehaviour
         //this will destroy the object that has the script that touches the ground
         if (other.gameObject.name.Equals("Ground"))
         {
-            //destroys the object after 1 seconds of touching the ground
-            Destroy(gameObject, 0f);
+            //destroys the object after 0.5 seconds of touching the ground
+            Destroy(gameObject, 0.5f);
             //ResetObject();
         }
     }
