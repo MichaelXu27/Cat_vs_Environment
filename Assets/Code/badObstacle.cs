@@ -45,6 +45,10 @@ public class badObstacle : MonoBehaviour
             Destroy(gameObject, 0.5f);
             //ResetObject();
         }
+        if (other.gameObject.CompareTag("goodObject"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void ResetObject()

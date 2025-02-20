@@ -10,7 +10,6 @@ public class Movement : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
-    private float direction = 0f;
     public float speed = 5f;
 
     // Use this for initialization
@@ -24,20 +23,18 @@ public class Movement : MonoBehaviour
         // jump
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (isTouchingGround && Input.GetButtonDown("Jump")) {
-            player.velocity = new Vector2(player.velocity.x, jumpSpeed); 
+            //player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+            //modified jump with force impulse
+            player.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
+
         }
         // move left & right
-        direction = Input.GetAxis("Horizontal");
-        if (direction > 0f) {
-            player.velocity = new Vector2(direction * speed, player.velocity.y);
+        if (Input.GetKey(KeyCode.LeftArrow)) {
+            player.AddForce(Vector2.left * 25f * Time.deltaTime, ForceMode2D.Impulse);
         }
-        else if (direction < 0f)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            player.velocity = new Vector2(direction * speed, player.velocity.y);
-        }
-        else
-        {
-            player.velocity = new Vector2(0, player.velocity.y);
+            player.AddForce(Vector2.right * 25f * Time.deltaTime, ForceMode2D.Impulse);
         }
     }
 }
