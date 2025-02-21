@@ -20,18 +20,17 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update() 
     { 
-        // jump
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (isTouchingGround && Input.GetButtonDown("Jump"))
-        {
+       // if (isTouchingGround && Input.GetButtonDown("Jump"))
+      //  {
             //player.velocity = new Vector2(player.velocity.x, jumpSpeed);
             //modified jump with force impulse
-            player.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
-        }
+         //   player.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
+       // }
 
-        // Move Up
-        if(Input.GetKey(KeyCode.UpArrow)) {
-            player.AddForce(Vector2.up * 25f * Time.deltaTime, ForceMode2D.Impulse);
+        // Up arrow to jump
+        if (isTouchingGround && Input.GetKeyDown(KeyCode.UpArrow)) {
+            player.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
         }
 
         // move left & right
