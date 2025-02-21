@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour 
 { 
-    public float jumpSpeed = 9f;
     private Rigidbody2D player;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
-    public float speed = 5f;
-
+    private bool isDashing = false;
+    public float dashDuration = 0.2f;
+    private float nextDashTime = 0f;
+    private float dashEndTime;
+    
     // Use this for initialization
     void Start () 
     {
@@ -20,27 +22,46 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update() 
     { 
-        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-       // if (isTouchingGround && Input.GetButtonDown("Jump"))
-      //  {
-            //player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-            //modified jump with force impulse
-         //   player.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
-       // }
-
+        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); 
         // Up arrow to jump
         if (isTouchingGround && Input.GetKeyDown(KeyCode.UpArrow)) {
             player.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
         }
-
         // move left & right
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            player.AddForce(Vector2.left * 25f * Time.deltaTime, ForceMode2D.Impulse);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (!isDashing)
         {
-            player.AddForce(Vector2.right * 25f * Time.deltaTime, ForceMode2D.Impulse);
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                player.AddForce(Vector2.left * 25f * Time.deltaTime, ForceMode2D.Impulse);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                player.AddForce(Vector2.right * 25f * Time.deltaTime, ForceMode2D.Impulse);
+            }
         }
+        // dash when space bar and left/right arrow are pressed
+        if (Time.time >= nextDashTime && isTouchingGround && Input.GetKeyDown(KeyCode.Space))
+        {
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                StartDash(Vector2.left);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                StartDash(Vector2.right);
+            }
+        }
+        // stop dash after duration
+        if (isDashing && Time.time >= dashEndTime)
+        {
+            isDashing = false;
+            player.velocity = Vector2.zero;
+        }
+    }
+    void StartDash(Vector2 direction)
+    {
+        isDashing = true;
+        dashEndTime = Time.time + dashDuration;
+        nextDashTime = Time.time + 1f;
+        player.velocity = direction * 30f;
     }
 }
 
