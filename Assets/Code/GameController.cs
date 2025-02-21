@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        gameOverScreen.Setup(score); 
+        gameOverScreen.Setup(score);
+        Time.timeScale = 0; 
     }
 }

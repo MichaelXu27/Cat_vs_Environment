@@ -11,6 +11,8 @@ public class badObstacle : MonoBehaviour
     Vector2 originalPosition;
     Quaternion originalRotation;
 
+    private GameController gameController;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,6 +21,8 @@ public class badObstacle : MonoBehaviour
         originalRotation = transform.rotation;
 
         rb.isKinematic = false;
+
+        gameController = FindObjectOfType<GameController>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -31,10 +35,12 @@ public class badObstacle : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        //reload the scene if the cat comes in contact with the bad obstacle
-        if (other.gameObject.GetComponent<Movement>()) //movement can be replaced
+        if (other.gameObject.CompareTag("Player")) 
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (gameController != null) 
+            {
+                gameController.GameOver();
+            }
         }
 
 
