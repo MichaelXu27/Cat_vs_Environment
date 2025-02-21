@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public Text pointsText;
-
+    public TMP_Text pointsText;
+    void Start()
+    {
+        gameObject.SetActive(false); 
+    }
     public void Setup(int score)
     {
         gameObject.SetActive(true);
