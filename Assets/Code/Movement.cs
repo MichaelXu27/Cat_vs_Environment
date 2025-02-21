@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
         
         // Move Up
         if(Input.GetKey(KeyCode.UpArrow)) {
-            transform.position += new Vector3(0, 0.2f, 0);
+            player.AddForce(Vector2.up * 25f * Time.deltaTime, ForceMode2D.Impulse);
         }
 
         // move left & right
@@ -41,4 +41,5 @@ public class Movement : MonoBehaviour
             player.AddForce(Vector2.right * 25f * Time.deltaTime, ForceMode2D.Impulse);
         }
     }
+}
 }
