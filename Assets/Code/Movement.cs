@@ -26,8 +26,12 @@ public class Movement : MonoBehaviour
             //player.velocity = new Vector2(player.velocity.x, jumpSpeed);
             //modified jump with force impulse
             player.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
-
+        
+        // Move Up
+        if(Input.GetKey(KeyCode.UpArrow)) {
+            transform.position += new Vector3(0, 0.2f, 0);
         }
+
         // move left & right
         if (Input.GetKey(KeyCode.LeftArrow)) {
             player.AddForce(Vector2.left * 25f * Time.deltaTime, ForceMode2D.Impulse);
