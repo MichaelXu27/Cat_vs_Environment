@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325b571c399b04559a8e35059bbdd379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsText: {fileID: 0}
 --- !u!114 &132443699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1649,7 +1650,7 @@ GameObject:
   - component: {fileID: 1639473714}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1666,13 +1667,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1845b61fce76f4fe8895c53da3f19354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 8
   groundCheck: {fileID: 2130909818}
   groundCheckRadius: 0.8
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  speed: 5
+  dashDuration: 0.2
 --- !u!212 &1639473712
 SpriteRenderer:
   m_ObjectHideFlags: 0
