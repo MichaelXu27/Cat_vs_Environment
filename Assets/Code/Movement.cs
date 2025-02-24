@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     public float dashDuration = 0.2f;
     private float nextDashTime = 0f;
     private float dashEndTime;
+    public float acceleration = 75;
     
     // Use this for initialization
     void Start () 
@@ -31,11 +32,11 @@ public class Movement : MonoBehaviour
         if (!isDashing)
         {
             if (Input.GetKey(KeyCode.LeftArrow)) {
-                player.AddForce(Vector2.left * 25f * Time.deltaTime, ForceMode2D.Impulse);
+                player.AddForce(Vector2.left * acceleration * Time.deltaTime, ForceMode2D.Impulse);
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                player.AddForce(Vector2.right * 25f * Time.deltaTime, ForceMode2D.Impulse);
+                player.AddForce(Vector2.right * acceleration * Time.deltaTime, ForceMode2D.Impulse);
             }
         }
         // dash when space bar and left/right arrow are pressed

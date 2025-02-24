@@ -35,8 +35,10 @@ public class badObstacle : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<Movement>()){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (other.gameObject.GetComponent<Movement>())
+        {
+            gameController.GameOver();
+            Destroy(other.transform.gameObject);
         }
         // if (other.gameObject.CompareTag("Player")) 
         // {

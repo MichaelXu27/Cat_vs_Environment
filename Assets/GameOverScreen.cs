@@ -18,7 +18,6 @@ public class GameOverScreen : MonoBehaviour
         gameObject.SetActive(true);
         pointsText.text = score.ToString() + " POINTS";
     }
-
     public void RestartButton()
     {
         Time.timeScale = 1; // Unpause the game
@@ -28,6 +27,6 @@ public class GameOverScreen : MonoBehaviour
     public void ExitButton()
     {
         Time.timeScale = 1; //Unpause the game
-        SceneManager.LoadScene("InitialScene");
+        SceneManager.LoadScene("MenuScene");
     }
 }
