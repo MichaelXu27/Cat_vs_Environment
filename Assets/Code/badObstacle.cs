@@ -50,26 +50,14 @@ public class badObstacle : MonoBehaviour
 
 
         //this will destroy the object that has the script that touches the ground
-        if (other.gameObject.name.Equals("Ground"))
+        if (other.gameObject.name.Equals("Ground") && !gameObject.CompareTag("SideToSideObject"))
         {
             //destroys the object after 0.5 seconds of touching the ground
             Destroy(gameObject, 0.5f);
-            //ResetObject();
         }
-        if (other.gameObject.CompareTag("goodObject"))
+        if (other.gameObject.CompareTag("goodObject") && !gameObject.CompareTag("SideToSideObject"))
         {
             Destroy(gameObject);
         }
-    }
-
-    void ResetObject()
-    {
-        rb.isKinematic = false;
-
-        transform.position = originalPosition;
-        transform.rotation = originalRotation;
-
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
     }
 }
