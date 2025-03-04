@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     public float dashDuration = 0.2f;
     private float nextDashTime = 0f;
     private float dashEndTime;
+    public int jumpsLeft;
     
     // Use this for initialization
     void Start () 
@@ -23,9 +24,16 @@ public class Movement : MonoBehaviour
     void Update() 
     { 
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); 
-        // Up arrow to jump
-        if (isTouchingGround && Input.GetKeyDown(KeyCode.UpArrow)) {
-            player.AddForce(Vector2.up * 15f, ForceMode2D.Impulse);
+
+        if (isTouchingGround)
+        {
+            jumpsLeft = 2;  // Reset jumps when touching the ground
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpsLeft > 0) 
+        {
+            jumpsLeft--;
+            player.AddForce(Vector2.up * 14f, ForceMode2D.Impulse);
         }
         // move left & right
         if (!isDashing)
@@ -56,12 +64,30 @@ public class Movement : MonoBehaviour
             player.velocity = Vector2.zero;
         }
     }
+
     void StartDash(Vector2 direction)
     {
         isDashing = true;
         dashEndTime = Time.time + dashDuration;
         nextDashTime = Time.time + 1f;
         player.velocity = direction * 30f;
+    }
+    
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 0.7f);
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit2D hit = hits[i];
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                {
+                    jumpsLeft = 2;
+                }
+            }
+        }
     }
 }
 
