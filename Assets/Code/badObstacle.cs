@@ -51,7 +51,7 @@ public class badObstacle : MonoBehaviour
 
         //this will destroy the object that has the script that touches the ground
         // if (other.gameObject.name.Equals("Ground") && !gameObject.CompareTag("SideToSideObject"))
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground")) 
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground") && !gameObject.CompareTag("SideToSideObject")) 
 
         {
             //destroys the object after 0.5 seconds of touching the ground

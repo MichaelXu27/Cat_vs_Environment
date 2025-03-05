@@ -4508,9 +4508,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1639473713}
   - component: {fileID: 1639473712}
-  - component: {fileID: 1639473711}
-  - component: {fileID: 1639473715}
+  - component: {fileID: 1639473716}
   - component: {fileID: 1639473714}
+  - component: {fileID: 1639473717}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -4518,25 +4518,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1639473711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639473710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1845b61fce76f4fe8895c53da3f19354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheck: {fileID: 2130909818}
-  groundCheckRadius: 0.8
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  dashDuration: 0.2
-  jumpsLeft: 2
 --- !u!212 &1639473712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4632,8 +4613,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1639473715
-BoxCollider2D:
+--- !u!114 &1639473716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639473710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1845b61fce76f4fe8895c53da3f19354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 2130909818}
+  groundCheckRadius: 0.8
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  dashDuration: 0.2
+  jumpsLeft: 2
+--- !u!70 &1639473717
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4665,18 +4665,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1894531, y: 1.9140625}
-    newSize: {x: 2.1894531, y: 1.9140625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 2.1894531, y: 1.9140625}
-  m_EdgeRadius: 0
+  m_Direction: 0
 --- !u!1001 &1747664168
 PrefabInstance:
   m_ObjectHideFlags: 0
