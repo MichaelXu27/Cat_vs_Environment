@@ -6,6 +6,7 @@ TagManager:
   tags:
   - goodObject
   - SideToSideObject
+  - PowerUp
   layers:
   - Default
   - TransparentFX

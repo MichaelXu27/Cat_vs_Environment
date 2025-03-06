@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class badObstacle : MonoBehaviour
 {
-
     Rigidbody2D rb;
 
     Vector2 originalPosition;
     Quaternion originalRotation;
 
     private GameController gameController;
-
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,24 +34,20 @@ public class badObstacle : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<Movement>())
+        if (other.gameObject.GetComponent<Movement>() && gameObject.GetComponent<badObstacle>())
         {
-            gameController.GameOver();
-            Destroy(other.transform.gameObject);
+            Debug.Log("life " + ExtraLifePowerUp.lifeRemaining);
+            ExtraLifePowerUp.lifeRemaining -= 1;
+            if (ExtraLifePowerUp.lifeRemaining < 1)
+            {
+                gameController.GameOver();
+                Destroy(other.transform.gameObject);
+                ExtraLifePowerUp.lifeRemaining = 1;
+            }
         }
-        // if (other.gameObject.CompareTag("Player")) 
-        // {
-        //     if (gameController != null) 
-        //     {
-        //         gameController.GameOver();
-        //     }
-        // }
-
 
         //this will destroy the object that has the script that touches the ground
-        // if (other.gameObject.name.Equals("Ground") && !gameObject.CompareTag("SideToSideObject"))
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground") && !gameObject.CompareTag("SideToSideObject")) 
-
         {
             //destroys the object after 0.5 seconds of touching the ground
             Destroy(gameObject, 0.5f);
