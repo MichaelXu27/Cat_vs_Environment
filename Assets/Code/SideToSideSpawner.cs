@@ -8,8 +8,8 @@ public class SideToSideSpawner : MonoBehaviour
     public float spawnInterval = 2f;
 
     public float groundY = -3f;
-    public float leftX = -10.5f;
-    public float rightX = 10.5f;
+    public float leftX = -18.5f;
+    public float rightX = 18.5f;
 
     private bool hasStartedSpawning = false;
 
