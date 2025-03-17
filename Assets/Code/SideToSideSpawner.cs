@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class SideToSideSpawner : MonoBehaviour
 {
+    //outlets
     public GameObject[] sideToSidePrefabs;
-    public float spawnInterval = 2f;
+    public float spawnInterval;
+    public float minimumInterval;
+    public float rampUpRate ;
 
-    public float groundY = -3f;
-    public float leftX = -18.5f;
-    public float rightX = 18.5f;
+    float groundY = -3f;
+    float leftX = -18.5f;
+    float rightX = 18.5f;
 
     private bool hasStartedSpawning = false;
 
@@ -20,8 +23,20 @@ public class SideToSideSpawner : MonoBehaviour
             if (ScoreManager.instance.score >= 5)
             {
                 hasStartedSpawning = true;
-                InvokeRepeating(nameof(SpawnSideToSideObject), 0f, spawnInterval);
+                StartCoroutine(SpawnObjects());
             }
+        }
+    }
+
+    IEnumerator SpawnObjects()
+    {
+        while (true)
+        {
+            SpawnSideToSideObject();
+            yield return new WaitForSeconds(spawnInterval);
+
+            // decrease the spawnInterval, but do not go below the minimumInterval
+            spawnInterval = Mathf.Max(minimumInterval, spawnInterval - rampUpRate);
         }
     }
 

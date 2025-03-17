@@ -3235,7 +3235,7 @@ Transform:
   m_GameObject: {fileID: 944946536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.54, y: -2.43, z: 0.02039453}
+  m_LocalPosition: {x: 8.11, y: 8.08, z: 0.02039453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5888,10 +5888,6 @@ MonoBehaviour:
   - {fileID: 6818351279761310269, guid: ebe291ffbad9141de87f4d02132be9fd, type: 3}
   - {fileID: 9152153474173053413, guid: 22751deb1b46843228ec35f5d9a544dc, type: 3}
   - {fileID: 1530763852658627142, guid: e6eef3f9d56f74f0486af50e6cb18fa1, type: 3}
-  spawnInterval: 1
-  spawningY: 6
-  mixX: -7.5
-  maxX: 7.5
 --- !u!4 &1956879675
 Transform:
   m_ObjectHideFlags: 0
@@ -6292,10 +6288,9 @@ MonoBehaviour:
   sideToSidePrefabs:
   - {fileID: 5355837399578947352, guid: 2ef3da201ca0bf242a67e223bcccf026, type: 3}
   - {fileID: 3025689734997946059, guid: cdf6814db157d7347bd2841bcd5b3eab, type: 3}
-  spawnInterval: 2
-  groundY: -3
-  leftX: -18.5
-  rightX: 18.5
+  spawnInterval: 4
+  minimumInterval: 1
+  rampUpRate: 0.05
 --- !u!1 &2070935092
 GameObject:
   m_ObjectHideFlags: 0
