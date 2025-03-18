@@ -37,13 +37,13 @@ public class badObstacle : MonoBehaviour
         if (other.gameObject.GetComponent<Movement>() && gameObject.GetComponent<badObstacle>())
         {
             LivesManager.instance.LoseALife();
-            Debug.Log("life " + ExtraLifePowerUp.lifeRemaining);
             ExtraLifePowerUp.lifeRemaining -= 1;
+            Debug.Log("life " + ExtraLifePowerUp.lifeRemaining);
             if (ExtraLifePowerUp.lifeRemaining < 1)
             {
                 gameController.GameOver();
                 Destroy(other.transform.gameObject);
-                ExtraLifePowerUp.lifeRemaining = 1;
+                ExtraLifePowerUp.lifeRemaining = 3;
             }
         }
 

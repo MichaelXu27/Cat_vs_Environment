@@ -7,13 +7,13 @@ public class powerUpSpawner : MonoBehaviour
     public GameObject[] powerup_prefabs; //array to hold all of the gameObjects
     public float spawnInterval = 9f;
     public float spawningY = 6f;
-    public float mixX = -7.5f; //this is the farthest left of the screen
-    public float maxX = 7.5f; //this is the farthest right of the screen
+    public float mixX; //this is the farthest left of the screen
+    public float maxX; //this is the farthest right of the screen
     
     void Start()
     {
         // delay first power-up spawn by 6 seconds
-        InvokeRepeating(nameof(SpawnObject), 6f, spawnInterval);
+        InvokeRepeating(nameof(SpawnObject), 10f, spawnInterval);
     }
     
     void SpawnObject()

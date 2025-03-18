@@ -6524,10 +6524,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerup_prefabs:
   - {fileID: 209058348553919842, guid: 1b77adaa29fde408e88a24857a1efdd3, type: 3}
-  spawnInterval: 10
+  spawnInterval: 12
   spawningY: 6
-  mixX: -7.5
-  maxX: 7.5
+  mixX: -10.5
+  maxX: 10.5
 --- !u!1001 &2096810869
 PrefabInstance:
   m_ObjectHideFlags: 0
