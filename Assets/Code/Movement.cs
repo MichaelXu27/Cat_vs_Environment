@@ -14,11 +14,20 @@ public class Movement : MonoBehaviour
     private float nextDashTime = 0f;
     private float dashEndTime;
     public int jumpsLeft;
+    SpriteRenderer sprite;
+    Animator animator;
     
     // Use this for initialization
     void Start () 
     {
         player = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+    }
+
+    void FixedUpdate()
+    {
+        animator.SetFloat("Speed", player.velocity.magnitude);
     }
     // Update is called once per frame
     void Update() 
@@ -35,15 +44,18 @@ public class Movement : MonoBehaviour
             jumpsLeft--;
             player.AddForce(Vector2.up * 14f, ForceMode2D.Impulse);
         }
+        animator.SetInteger("JumpsLeft", jumpsLeft);
         // move left & right
         if (!isDashing)
         {
             if (Input.GetKey(KeyCode.LeftArrow)) {
                 player.AddForce(Vector2.left * 25f * Time.deltaTime, ForceMode2D.Impulse);
+                sprite.flipX = true;
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 player.AddForce(Vector2.right * 25f * Time.deltaTime, ForceMode2D.Impulse);
+                sprite.flipX = false;
             }
         }
         // dash when space bar and left/right arrow are pressed
