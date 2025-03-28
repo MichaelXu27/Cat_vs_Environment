@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Total VGI Github.sln"
+    "dotnet.defaultSolution": "VG1_Project.sln"
 }
