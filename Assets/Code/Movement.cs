@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
     public int jumpsLeft;
     SpriteRenderer sprite;
     Animator animator;
+    private Color originalColor;
+    public Color collisionColor = Color.red;
     
     // Use this for initialization
     void Start () 
@@ -23,6 +25,7 @@ public class Movement : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        originalColor = sprite.color;
     }
 
     void FixedUpdate()
@@ -100,6 +103,23 @@ public class Movement : MonoBehaviour
                 }
             }
         }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<badObstacle>())
+        {
+            
+            sprite.color = collisionColor;
+            StartCoroutine(FlashRed());
+        }
+    }
+
+    private IEnumerator FlashRed()
+    {
+        sprite.color = collisionColor;
+        yield return new WaitForSeconds(.7f);
+        sprite.color = originalColor;
     }
 }
 
