@@ -20,8 +20,8 @@ public class Projectile1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float acceleration = 0.25f;
-        float maxSpeed = 1f;
+        float acceleration = 0.75f;
+        float maxSpeed = 2f;
 
         //home in on target
         ChooseNearestTarget();

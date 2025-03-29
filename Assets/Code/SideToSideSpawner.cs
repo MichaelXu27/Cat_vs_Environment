@@ -14,21 +14,34 @@ public class SideToSideSpawner : MonoBehaviour
     float leftX = -18.5f;
     float rightX = 18.5f;
 
-    private bool hasStartedSpawning = false;
+    private bool hasStartedSpawningSideToSide = false;
+    private bool hasStartedSpawningFlying = false;
+
+    public Transform[] spawnPoints;
+    public GameObject missile;
 
     void Update()
     {
-        if (!hasStartedSpawning)
+        if (!hasStartedSpawningSideToSide)
         {
             if (ScoreManager.instance.score >= 5)
             {
-                hasStartedSpawning = true;
-                StartCoroutine(SpawnObjects());
+                hasStartedSpawningSideToSide = true;
+                StartCoroutine(SpawnObjectsSide());
+            }
+        }
+
+        if (!hasStartedSpawningFlying)
+        {
+            if(ScoreManager.instance.score >= 10)
+            {
+                hasStartedSpawningFlying = true;
+                StartCoroutine(SpawnObjectsFlying());
             }
         }
     }
 
-    IEnumerator SpawnObjects()
+    IEnumerator SpawnObjectsSide()
     {
         while (true)
         {
@@ -36,6 +49,17 @@ public class SideToSideSpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
 
             // decrease the spawnInterval, but do not go below the minimumInterval
+            spawnInterval = Mathf.Max(minimumInterval, spawnInterval - rampUpRate);
+        }
+    }
+
+    IEnumerator SpawnObjectsFlying()
+    {
+        while (true)
+        {
+            SpawnFlyingObjects();
+            yield return new WaitForSeconds(spawnInterval);
+
             spawnInterval = Mathf.Max(minimumInterval, spawnInterval - rampUpRate);
         }
     }
@@ -72,5 +96,13 @@ public class SideToSideSpawner : MonoBehaviour
                 movementScript.speed = -Mathf.Abs(movementScript.speed); 
             }
         }
+    }
+
+    void SpawnFlyingObjects()
+    {
+        int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
+        Transform randomSpawnPoint = spawnPoints[randomSpawnIndex];
+
+        Instantiate(missile, randomSpawnPoint.position, Quaternion.identity);
     }
 }

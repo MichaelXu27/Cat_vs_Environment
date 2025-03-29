@@ -10,13 +10,20 @@ public class objectSpawner : MonoBehaviour
     float mixX = -14.5f; //this is the farthest left of the screen
     float maxX = 14.5f; //this is the farthest right of the screen
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating(nameof(SpawnObject), 0f, spawnInterval);
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    // this spawn is for normal falling objects
     void SpawnObject()
     {
         int index = Random.Range(0, object_prefabs.Length);
