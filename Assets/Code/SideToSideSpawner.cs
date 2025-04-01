@@ -96,6 +96,13 @@ public class SideToSideSpawner : MonoBehaviour
                 movementScript.speed = -Mathf.Abs(movementScript.speed); 
             }
         }
+
+        SpriteRenderer sprite = spawnedObj.GetComponent<SpriteRenderer>();
+        if(sprite != null)
+        {
+            sprite.flipX = !spawnOnLeft;
+        }
+
     }
 
     void SpawnFlyingObjects()
