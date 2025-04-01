@@ -17,8 +17,9 @@ public class Movement : MonoBehaviour
     SpriteRenderer sprite;
     Animator animator;
     private Color originalColor;
-    public Color collisionColor = Color.red;
-    
+    public Color collisionColorBad = Color.red;
+    public Color collisionColorLife = Color.green;
+
     // Use this for initialization
     void Start () 
     {
@@ -110,14 +111,26 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.GetComponent<badObstacle>())
         {
             
-            sprite.color = collisionColor;
+            sprite.color = collisionColorBad;
             StartCoroutine(FlashRed());
+        }
+        if (collision.gameObject.GetComponent<ExtraLifePowerUp>())
+        {
+            sprite.color = collisionColorLife;
+            StartCoroutine(FlashGreen());
         }
     }
 
     private IEnumerator FlashRed()
     {
-        sprite.color = collisionColor;
+        sprite.color = collisionColorBad;
+        yield return new WaitForSeconds(.7f);
+        sprite.color = originalColor;
+    }
+
+    private IEnumerator FlashGreen()
+    {
+        sprite.color = collisionColorLife;
         yield return new WaitForSeconds(.7f);
         sprite.color = originalColor;
     }
