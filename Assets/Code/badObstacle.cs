@@ -22,6 +22,7 @@ public class badObstacle : MonoBehaviour
         rb.isKinematic = false;
 
         gameController = FindObjectOfType<GameController>();
+        AddRedObjectBorder();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -57,5 +58,24 @@ public class badObstacle : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void AddRedObjectBorder()
+    {
+        SpriteRenderer currentSprite = GetComponent<SpriteRenderer>();
+        if(currentSprite == null) { return; }
+
+        GameObject borderObj = new GameObject("RedBorder");
+        borderObj.transform.SetParent(transform);
+        borderObj.transform.localPosition = Vector3.zero;
+        borderObj.transform.localScale = Vector3.one * 1.1f;
+        
+        
+        SpriteRenderer borderSR = borderObj.AddComponent<SpriteRenderer>();
+        borderSR.sprite = currentSprite.sprite;
+        borderSR.color = Color.red;
+        borderSR.sortingLayerID = currentSprite.sortingLayerID;
+        borderSR.sortingOrder = currentSprite.sortingOrder - 1;
+
     }
 }

@@ -20,6 +20,8 @@ public class NewBehaviourScript : MonoBehaviour
         originalRotation = transform.rotation;
 
         rb.isKinematic = false;
+
+        AddGreenObjectBorder();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -59,5 +61,24 @@ public class NewBehaviourScript : MonoBehaviour
 
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
+    }
+
+    void AddGreenObjectBorder()
+    {
+        SpriteRenderer currentSprite = GetComponent<SpriteRenderer>();
+        if (currentSprite == null) { return; }
+
+        GameObject borderObj = new GameObject("RedBorder");
+        borderObj.transform.SetParent(transform);
+        borderObj.transform.localPosition = Vector3.zero;
+        borderObj.transform.localScale = Vector3.one * 1.1f;
+
+
+        SpriteRenderer borderSR = borderObj.AddComponent<SpriteRenderer>();
+        borderSR.sprite = currentSprite.sprite;
+        borderSR.color = Color.green;
+        borderSR.sortingLayerID = currentSprite.sortingLayerID;
+        borderSR.sortingOrder = currentSprite.sortingOrder - 1;
+
     }
 }
