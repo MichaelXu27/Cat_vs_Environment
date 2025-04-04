@@ -1365,7 +1365,8 @@ MonoBehaviour:
     m_Bits: 64
   dashDuration: 0.2
   jumpsLeft: 2
-  collisionColor: {r: 1, g: 0, b: 0, a: 1}
+  collisionColorBad: {r: 1, g: 0, b: 0, a: 1}
+  collisionColorLife: {r: 0, g: 1, b: 0, a: 1}
 --- !u!95 &373028186
 Animator:
   serializedVersion: 5
@@ -2102,7 +2103,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.110921, y: -0.06672001, z: -10.011647}
+  m_LocalPosition: {x: 2.1110582, y: -0.06692004, z: -10.011647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5265,10 +5266,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -8.467714, y: 3.0091763}
-      - {x: -8.46933, y: -7.0120845}
-      - {x: 21.970125, y: -7.085061}
-      - {x: 21.968513, y: 2.9361982}
+    - - {x: 0.8272362, y: 4.1849856}
+      - {x: -2.3378143, y: 4.182488}
+      - {x: -8.28064, y: 4.196998}
+      - {x: -8.346223, y: -7.0120845}
+      - {x: 21.72391, y: -7.085061}
+      - {x: 21.732681, y: 4.2014813}
   m_UseDelaunayMesh: 0
 --- !u!1 &1489273667
 GameObject:
@@ -5511,8 +5514,8 @@ GameObject:
   - component: {fileID: 1598314488}
   - component: {fileID: 1598314487}
   - component: {fileID: 1598314486}
-  m_Layer: 6
-  m_Name: Ground
+  m_Layer: 11
+  m_Name: TopBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5605,7 +5608,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5624,7 +5627,7 @@ Transform:
   m_GameObject: {fileID: 1598314485}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17, y: -8.13, z: 0}
+  m_LocalPosition: {x: 1.63, y: 7.24, z: 0}
   m_LocalScale: {x: 23.972082, y: 1.2959932, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

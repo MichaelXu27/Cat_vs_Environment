@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
 
         if (isTouchingGround)
         {
-            jumpsLeft = 2;  // Reset jumps when touching the ground
+            jumpsLeft = 1;  // Reset jumps when touching the ground
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && jumpsLeft > 0) 
