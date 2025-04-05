@@ -1682,14 +1682,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Description:\r\n\r\nIn cat vs environment, quick reflexes and sharp instincts
-    are your best allies as you  weave past obstacles, dodging danger, and collecting
-    treasures.\r\n\r\nGameplay:\r\n\r\nDodge the Bad \u2013 Avoid falling objects
-    such as rocks, they will reset the game\r\nCollect the Good \u2013 Snag tasty
-    cakes, fruits, and sweets.\r\n\r\nHow to play:\r\n\r\nLeft and right arrowkeys
-    will move the cat left and right accordingly.\r\n\r\nUp arrowkey will allow the
-    cat to jump.\r\n\r\nSpacebar will allow the cat to dash in whatever direction
-    the cat is moving.\r\n"
+  m_text: "Description:\r\n\r\n[ Quick reflexes and sharp instincts are your best
+    allies as you weave past obstacles and collect treasures ]\n\r\nGameplay:\r\n\r\nDodge
+    Danger \u2013 Avoid rocks, cars, and missiles\nCollect Treasure \u2013 Snag tasty
+    cakes, fruits, and sweets\n\r\nHow to play:\r\n\r\n[ Left and right arrowkeys
+    to move left and right ]\n\r\n[ Up arrowkey to jump ]\n\r\n[ Spacebar to dash
+    in direction the cat is moving in ]\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1699,7 +1697,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4282242786
-  m_fontColor: {r: 0.8867924, g: 0.83743274, b: 0.23843002, a: 1}
+  m_fontColor: {r: 0.33773577, g: 0.96470076, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
