@@ -100,7 +100,7 @@ public class Movement : MonoBehaviour
                 RaycastHit2D hit = hits[i];
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    jumpsLeft = 2;
+                    jumpsLeft = 1;
                 }
             }
         }
