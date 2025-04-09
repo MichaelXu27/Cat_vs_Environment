@@ -1760,7 +1760,7 @@ MonoBehaviour:
   highScoreText: {fileID: 1872549059}
   levelUp: {fileID: 570433323}
   score: 0
-  levelUpThresholds: 050000000a0000000f000000
+  levelUpThresholds: 050000000a0000000f000000e7030000
 --- !u!114 &462745242
 MonoBehaviour:
   m_ObjectHideFlags: 0
