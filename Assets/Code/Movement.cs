@@ -16,9 +16,11 @@ public class Movement : MonoBehaviour
     public int jumpsLeft;
     SpriteRenderer sprite;
     Animator animator;
+    private Coroutine flashCoroutine = null;
     private Color originalColor;
     public Color collisionColorBad = Color.red;
     public Color collisionColorLife = Color.green;
+    public Color starColor = new Color(1f, 0.843f, 0f);
 
     // Use this for initialization
     void Start () 
@@ -35,7 +37,17 @@ public class Movement : MonoBehaviour
     }
     // Update is called once per frame
     void Update() 
-    { 
+    {
+        if (StarPowerUp.isInvincible && flashCoroutine == null)
+        {
+            flashCoroutine = StartCoroutine(FlashGold());
+        }
+        else if (!StarPowerUp.isInvincible && flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+            sprite.color = originalColor;
+        }
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); 
 
         if (isTouchingGround)
@@ -108,13 +120,12 @@ public class Movement : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<badObstacle>())
+        if (collision.gameObject.GetComponent<badObstacle>() && StarPowerUp.isInvincible == false)
         {
-            
             sprite.color = collisionColorBad;
             StartCoroutine(FlashRed());
         }
-        if (collision.gameObject.GetComponent<ExtraLifePowerUp>())
+        if (collision.gameObject.GetComponent<ExtraLifePowerUp>() && StarPowerUp.isInvincible == false)
         {
             sprite.color = collisionColorLife;
             StartCoroutine(FlashGreen());
@@ -134,5 +145,21 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(.7f);
         sprite.color = originalColor;
     }
+    
+    private IEnumerator FlashGold()
+    {
+        while (StarPowerUp.isInvincible)
+        {
+            sprite.color = starColor;
+            yield return new WaitForSeconds(0.2f);
+            sprite.color = originalColor;
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+    
+    public IEnumerator ResetInvincibility()
+    {
+        yield return new WaitForSeconds(8f);
+        StarPowerUp.isInvincible = false;
+    }
 }
-

@@ -1367,6 +1367,7 @@ MonoBehaviour:
   jumpsLeft: 2
   collisionColorBad: {r: 1, g: 0, b: 0, a: 1}
   collisionColorLife: {r: 1, g: 0.4433962, b: 0.95375854, a: 1}
+  starColor: {r: 1, g: 0.843, b: 0, a: 1}
 --- !u!95 &373028186
 Animator:
   serializedVersion: 5
@@ -6999,7 +7000,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerup_prefabs:
   - {fileID: 209058348553919842, guid: 1b77adaa29fde408e88a24857a1efdd3, type: 3}
-  spawnInterval: 12
+  - {fileID: 1321815572793924888, guid: 573bf95952c764b08ab8fadd68d21d6c, type: 3}
+  spawnInterval: 10
   spawningY: 6
   mixX: -10.5
   maxX: 10.5
