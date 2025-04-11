@@ -22,12 +22,16 @@ public class Movement : MonoBehaviour
     public Color collisionColorLife = Color.green;
     public Color starColor = new Color(1f, 0.843f, 0f);
 
+    AudioSource audioSource;
+    public AudioClip goodSFX;
+    public AudioClip badSFX;
     // Use this for initialization
     void Start () 
     {
         player = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         originalColor = sprite.color;
     }
 
@@ -92,7 +96,14 @@ public class Movement : MonoBehaviour
             player.velocity = Vector2.zero;
         }
     }
+    public void PlaySFX(bool isBad)
+    {
+        AudioClip clip = goodSFX;
+        if(isBad)
+            clip = badSFX;
+        audioSource.PlayOneShot(clip);
 
+    }
     void StartDash(Vector2 direction)
     {
         isDashing = true;

@@ -39,6 +39,7 @@ public class badObstacle : MonoBehaviour
         {
             if (StarPowerUp.isInvincible == false)
             {
+                other.gameObject.GetComponent<Movement>().PlaySFX(true);
                 LivesManager.instance.LoseALife();
                 ExtraLifePowerUp.lifeRemaining -= 1;
                 Debug.Log("life " + ExtraLifePowerUp.lifeRemaining);

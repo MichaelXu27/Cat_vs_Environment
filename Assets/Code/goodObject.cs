@@ -40,6 +40,7 @@ public class NewBehaviourScript : MonoBehaviour
             //add some scoring system here
             Destroy(gameObject);
             ScoreManager.instance.AddPoint();
+            other.gameObject.GetComponent<Movement>().PlaySFX(false);
         }
 
 
