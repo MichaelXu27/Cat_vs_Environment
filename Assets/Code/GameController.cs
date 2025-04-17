@@ -4,6 +4,7 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
+    public PauseGame pauseScreen;
     public GameOverScreen gameOverScreen;
     public LevelUp levelUp;
 
@@ -20,6 +21,12 @@ public class GameController : MonoBehaviour
         levelUp.gameObject.SetActive(false);
         gameOverScreen.Setup(ScoreManager.instance.score);
         
+        Time.timeScale = 0; 
+    }
+
+    public void PauseGame()
+    {
+        pauseScreen.Setup(ScoreManager.instance.score);
         Time.timeScale = 0; 
     }
 }

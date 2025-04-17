@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     public Color collisionColorBad = Color.red;
     public Color collisionColorLife = Color.green;
     public Color starColor = new Color(1f, 0.843f, 0f);
+    private GameController gameController;
 
     AudioSource audioSource;
     public AudioClip goodSFX;
@@ -33,6 +34,7 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         originalColor = sprite.color;
+        gameController = GameController.instace;
     }
 
     void FixedUpdate()
@@ -94,6 +96,11 @@ public class Movement : MonoBehaviour
         {
             isDashing = false;
             player.velocity = Vector2.zero;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameController.PauseGame();
         }
     }
     public void PlaySFX(bool isBad)
