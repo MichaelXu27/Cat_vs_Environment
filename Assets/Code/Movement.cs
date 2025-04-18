@@ -26,6 +26,8 @@ public class Movement : MonoBehaviour
     AudioSource audioSource;
     public AudioClip goodSFX;
     public AudioClip badSFX;
+    public AudioClip jumpSFX;
+    public AudioClip dashSFX;
     // Use this for initialization
     void Start () 
     {
@@ -65,6 +67,7 @@ public class Movement : MonoBehaviour
         {
             jumpsLeft--;
             player.AddForce(Vector2.up * 14f, ForceMode2D.Impulse);
+            audioSource.PlayOneShot(jumpSFX);
         }
         animator.SetInteger("JumpsLeft", jumpsLeft);
         // move left & right
@@ -117,6 +120,7 @@ public class Movement : MonoBehaviour
         dashEndTime = Time.time + dashDuration;
         nextDashTime = Time.time + 1f;
         player.velocity = direction * 30f;
+        audioSource.PlayOneShot(dashSFX);
     }
     
     void OnCollisionStay2D(Collision2D other)

@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.01360624, g: 0.09599236, b: 0.18490559, a: 0.89411765}
+  m_Color: {r: 0.41666663, g: 1, b: 0, a: 0.8627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1372,6 +1372,8 @@ MonoBehaviour:
   starColor: {r: 1, g: 0.843, b: 0, a: 1}
   goodSFX: {fileID: 8300000, guid: 95813b1644b4f164e85af287877ccd8b, type: 3}
   badSFX: {fileID: 8300000, guid: b678b47c1764f1648a4650b5268e6fb7, type: 3}
+  jumpSFX: {fileID: 8300000, guid: a22f74922a19d4d4aa7ef8b99893ba69, type: 3}
+  dashSFX: {fileID: 8300000, guid: 271036e462273a34c8d43958a9297e03, type: 3}
 --- !u!95 &373028186
 Animator:
   serializedVersion: 5
@@ -2089,9 +2091,9 @@ RectTransform:
   - {fileID: 504033125}
   - {fileID: 1872549061}
   - {fileID: 302844665}
-  - {fileID: 132443697}
   - {fileID: 969044296}
   - {fileID: 224166523}
+  - {fileID: 132443697}
   - {fileID: 570433322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4431,7 +4433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.01360624, g: 0.09599236, b: 0.18490559, a: 0.89411765}
+  m_Color: {r: 0.01360624, g: 0.09599236, b: 0.18490559, a: 0.8627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
